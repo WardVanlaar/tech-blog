@@ -20,10 +20,10 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     include: [
-    //   {
-    //     model: Post,
-    //     attributes: ['id', 'title', 'post_url', 'created_at']
-    //   },
+      {
+        model: Post,
+        attributes: ['id', 'title', 'post_url', 'created_at']
+      },
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'user_id', 'post_id', 'created_at'],
@@ -32,12 +32,6 @@ router.get('/:id', (req, res) => {
           attributes: ['title', 'post_text', 'user_id']
         }
       },
-    //   {
-    //     model: Post,
-    //     attributes: ['title'],
-    //     through: Vote,
-    //     as: 'voted_posts'
-    //   }
     ]
   })
     .then(dbUserData => {
