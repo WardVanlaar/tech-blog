@@ -9,8 +9,9 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
       'title',
+      'post_text',
+      'user_id',
       'created_at',
     //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -42,10 +43,11 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     attributes: [
-      'id',
-      'post_url',
-      'title',
-      'created_at',
+        'id',
+        'title',
+        'post_text',
+        'user_id',
+        'created_at',
     //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
@@ -76,11 +78,11 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
-    post_url: req.body.post_url,
-    user_id: req.session.user_id
+    post_text: req.body.post_text,
+    user_id: req.body.user_id //replace this line with req.session.user_id once sessions are coded
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -99,10 +101,12 @@ router.post('/', withAuth, (req, res) => {
 //     });
 // });
 
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_text: req.body.post_text,
+      user_id: req.body.user_id //replace this line with req.session.user_id once sessions are coded
     },
     {
       where: {
@@ -123,7 +127,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({
     where: {
