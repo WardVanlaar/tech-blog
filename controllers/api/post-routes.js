@@ -94,7 +94,7 @@ router.put('/:id', withAuth, (req, res) => {
     {
       title: req.body.title,
       post_text: req.body.post_text,
-      user_id: req.session.user_id
+      // user_id: req.session.user_id
     },
     {
       where: {
