@@ -169,10 +169,10 @@
     opacity: .6;
   }
   
-  .new-post-form input {
+  /* .new-post-form input {
     width: 1200px;
     height: 125px;
-  }
+  } */
   
   .edit-post-form {
     margin-bottom: 5%;
