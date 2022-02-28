@@ -90,12 +90,16 @@ router.get('/post/:id', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
+  if(req.session.loggedIn) {
+      res.redirect('/');
+      return; 
   }
-
   res.render('login');
+});
+
+// adapted code from https://github.com/nicolewallace09/the-tech-blog
+router.get('/signup', (req, res) => {
+  res.render('signup');
 });
 
 module.exports = router;
