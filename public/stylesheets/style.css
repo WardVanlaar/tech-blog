@@ -168,12 +168,30 @@
     margin-bottom: .5%;
     opacity: .6;
   }
+
+  input#post-title {
+    width: 400px;
+  }
+
+  textarea#post-text {
+    width: 800px;
+    height: 150px
+  }
   
-  /* .new-post-form input {
-    width: 1200px;
-    height: 125px;
-  } */
-  
+  .edit-post-form input {
+    width: 400px;
+  }
+
+  .edit-post-form textarea {
+    width: 800px;
+    height: 150px
+  }
+
+  .comment-form textarea {
+    width: 800px;
+    height: 150px
+  }
+
   .edit-post-form {
     margin-bottom: 5%;
   }
