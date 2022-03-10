@@ -21,6 +21,9 @@ Programming languages used:
 * Node.js
 * MySQL
 
+This is what it looks like:
+
+![image](https://user-images.githubusercontent.com/91222837/157723699-d24778d7-adbf-410d-9690-a2fb75c89aca.png)
 
 ## Installation
 Clone this repo, install Node.js and MySQL, then type npm install. Once all dependencies are installed, type npm start in the terminal.
